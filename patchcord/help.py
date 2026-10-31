@@ -247,6 +247,7 @@ def about():
     info = {
         "name": "Patchcord",
         "version": __version__,
+        "creator": "AlamandaCathartica",
         "python": platform.python_version(),
         "implementation": platform.python_implementation(),
         "platform": platform.platform(),
