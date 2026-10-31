@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "patchcord"
+version = "0.2.0"
+description = "Connect several machines (Colab, LAN, servers) into one cluster: tunnels, pairing, auth, resumable file sync."
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+patchcord = "patchcord.cli:main"
+
+[project.optional-dependencies]
+stats = ["psutil"]
+test = ["pytest"]
+
+[tool.setuptools]
+packages = ["patchcord"]
