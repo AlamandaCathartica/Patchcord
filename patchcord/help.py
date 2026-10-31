@@ -15,6 +15,15 @@ import textwrap
 from . import __version__
 
 
+BANNER = r""" ____          __           __                              __     
+/\  _`\       /\ \__       /\ \                            /\ \    
+\ \ \L\ \ __  \ \ ,_\   ___\ \ \___     ___    ___   _ __  \_\ \   
+ \ \ ,__/'__`\ \ \ \/  /'___\ \  _ `\  /'___\ / __`\/\`'__\/'_` \  
+  \ \ \/\ \L\.\_\ \ \_/\ \__/\ \ \ \ \/\ \__//\ \L\ \ \ \//\ \L\ \ 
+   \ \_\ \__/.\_\\ \__\ \____\\ \_\ \_\ \____\ \____/\ \_\\ \___,_\
+    \/_/\/__/\/_/ \/__/\/____/ \/_/\/_/\/____/\/___/  \/_/ \/__,_"""
+
+
 _TOPICS = {
     "controller": ("class", "patchcord.node", "Controller",
                    "Manage workers, pairing, and file synchronization."),
@@ -159,6 +168,7 @@ def help(topic=None, *, file=None):
           patchcord.list_transports()
           help(patchcord.Controller)
         """.format(version=__version__)
+        print(BANNER, file=file)
         print(textwrap.dedent(output).strip(), file=file)
         return
 
@@ -168,6 +178,7 @@ def help(topic=None, *, file=None):
         print(str(exc), file=file)
         return
 
+    print(BANNER, file=file)
     title = key.upper()
     doc = inspect.getdoc(obj) or description
     try:
@@ -236,6 +247,7 @@ def about():
         "platform": platform.platform(),
         "runtime_dependencies": "None (Python standard library)",
     }
+    print(BANNER)
     print("PATCHCORD")
     print("---------")
     for key, value in info.items():
